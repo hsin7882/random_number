@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=S, initial-scale=1.0">
     <title>Document</title>
     <style>
         input {
@@ -29,11 +28,18 @@
     <button id="btn">Guess</button>
     
     <script>
-        const num = documemt.getElementById('num');
         const btn = document.getElementById('btn');
-        btn.addEventListener('click', function(e) {
-            console.log(num.value);
+        const random = Math.floor(Math.random() * 6) + 1;
 
+        btn.addEventListener('click', function(e) {
+            const num = (documemt.getElementById('num')).value;
+
+            if(! num){
+                alert('input something, plase!');
+                return;
+            }
+            console.log(random);
+            console.log(num.value);
         });
 
     </script>
