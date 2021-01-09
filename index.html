@@ -32,12 +32,32 @@
         const random = Math.floor(Math.random() * 6) + 1;
 
         btn.addEventListener('click', function(e) {
-            const num = (documemt.getElementById('num')).value;
+            let num = (document.getElementById('num')).value;
 
             if(! num){
                 alert('input something, plase!');
                 return;
             }
+
+            if(num > 6){
+                alert('input number 1~6, please');
+                return;
+            }
+            
+            // console.log("random:" + random);
+            num = parseInt(num);
+
+            if(num === random){
+                alert('Good Job, You are right!!!');
+                return;
+            }
+
+            if(num > random){
+                alert('smaller, please');
+                return;
+            }
+            alert('bigger, please!')
+
             console.log(random);
             console.log(num.value);
         });
