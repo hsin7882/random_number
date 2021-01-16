@@ -21,13 +21,15 @@
             background:red
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
-    <h1>Guess Number</h1>
+    <h1>Guess Number2</h1>
     <input type="number" id="num" />
     <button id="btn">Guess</button>
     
     <script>
+        
         const btn = document.getElementById('btn');
         const random = Math.floor(Math.random() * 6) + 1;
 
@@ -35,12 +37,21 @@
             let num = (document.getElementById('num')).value;
 
             if(! num){
-                alert('input something, plase!');
+                Swal.fire({
+                title: 'Oh!Oh!',
+                text: '需要輸入數字喔!',
+                icon: 'error',
+                });
                 return;
             }
 
             if(num > 6){
-                alert('input number 1~6, please');
+                Swal.fire({
+                title: 'Oh!Oh!',
+                text: '數字不能大於六喔',
+                icon: 'error',
+                });
+                // alert('input number 1~6, please');
                 return;
             }
             
@@ -48,16 +59,36 @@
             num = parseInt(num);
 
             if(num === random){
-                alert('Good Job, You are right!!!');
+                Swal.fire({
+                title: 'Ya!',
+                text: '猜對了!',
+                icon: 'success',
+                });
+                // alert('Good Job, You are right!!!');
+                return;
+            }
+
+            if(num < random){
+                Swal.fire({
+                title: '!',
+                text: '數字再小一點',
+                icon: 'warning',
+                });
+                // alert('bigger, please!')
+
                 return;
             }
 
             if(num > random){
-                alert('smaller, please');
+                Swal.fire({
+                title: '!',
+                text: '數字再小一點',
+                icon: 'warning',
+                });
+                // alert('smaller, please');
                 return;
             }
-            alert('bigger, please!')
-
+            
             console.log(random);
             console.log(num.value);
         });
